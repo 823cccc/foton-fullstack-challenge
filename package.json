@@ -1,8 +1,8 @@
 {
-  "name": "template",
+  "name": "foton-challenge",
   "version": "1.0.0",
-  "repository": "git@github.com:823cccc/yarn-workspaces-typescript-template.git",
-  "license": "MIT",
+  "repository": "git@github.com:823cccc/foton-fullstack-challenge.git",
+  "license": "UNLICENSED",
   "private": "true",
   "workspaces": {
     "packages": [
@@ -10,7 +10,7 @@
     ]
   },
   "devDependencies": {
-    "@template/eslint-config": "*",
+    "@foton-challenge/eslint-config": "*",
     "typescript": "^4.2.4"
   }
 }
