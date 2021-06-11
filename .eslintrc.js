@@ -1,3 +1,3 @@
-const config = require('@template/eslint-config')
+const config = require('@foton-challenge/eslint-config')
 
 module.exports = config
