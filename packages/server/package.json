@@ -1,0 +1,8 @@
+{
+  "name": "@foton-challenge/server",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

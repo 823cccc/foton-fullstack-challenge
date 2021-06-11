@@ -1,0 +1,7 @@
+{
+  "name": "@foton-challenge/common",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}
