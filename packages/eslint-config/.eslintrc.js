@@ -9,14 +9,29 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:react/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort'],
+  plugins: [
+    '@typescript-eslint',
+    'prettier',
+    'simple-import-sort',
+    'react-hooks',
+  ],
   rules: {
     'prettier/prettier': 'error',
-    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     'simple-import-sort/imports': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 'off',
+  },
+  settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect',
+    },
   },
 }
