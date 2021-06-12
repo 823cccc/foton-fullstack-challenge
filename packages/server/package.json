@@ -2,7 +2,35 @@
   "name": "@foton-challenge/server",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "start": "ts-node-dev --respawn --transpile-only --inspect -- ./src/index.ts",
+    "typeorm": "ts-node ../../node_modules/typeorm/cli.js"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "@foton-challenge/common": "*",
+    "argon2": "^0.28.2",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^6.11.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.10.0",
+    "typeorm": "^0.2.34"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/morgan": "^1.9.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.6"
   }
 }

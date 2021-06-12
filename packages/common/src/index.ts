@@ -1,1 +1,3 @@
-export * from './books'
+export * from './AuthenticationData'
+export * from './Book'
+export * from './User'

@@ -1,5 +1,14 @@
-import express from 'express'
+import 'express-async-errors'
+import 'reflect-metadata'
 
-const app = express()
+import dotenv from 'dotenv'
+import Container from 'typedi'
 
-app.listen(3000)
+import { App } from './app'
+
+dotenv.config()
+
+Object.entries(process.env).forEach(([key, value]) => Container.set(key, value))
+
+const app = Container.get(App)
+app.bootstrap(process.env.PORT || 3000)
