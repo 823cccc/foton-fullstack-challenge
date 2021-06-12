@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
+    "typeorm": "ts-node ../../node_modules/typeorm/cli.js",
     "prebuild": "rimraf dist",
     "build": "tsc",
     "start": "ts-node-dev --respawn --transpile-only --inspect -- ./src/index.ts",
-    "typeorm": "ts-node ../../node_modules/typeorm/cli.js"
+    "start:prod": "node dist/index.js"
   },
   "dependencies": {
     "@foton-challenge/common": "*",

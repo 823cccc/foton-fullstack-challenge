@@ -9,6 +9,12 @@
       "packages/*"
     ]
   },
+  "scripts": {
+    "build:common": "yarn workspace @foton-challenge/common run build",
+    "build:server": "yarn workspace @foton-challenge/server run build",
+    "build": "yarn build:common && yarn build:server",
+    "start": "yarn workspace @foton-challenge/server run start:prod"
+  },
   "devDependencies": {
     "@foton-challenge/eslint-config": "*",
     "typescript": "^4.2.4"
