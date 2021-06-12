@@ -1,7 +1,7 @@
-import { User } from './User'
+import { UserWithoutPassword } from './User'
 
 interface AuthenticationData {
-  user: Partial<User>
+  user: UserWithoutPassword
   token: string
 }
 
