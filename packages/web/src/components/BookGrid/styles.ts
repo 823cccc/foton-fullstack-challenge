@@ -7,6 +7,8 @@ const Grid = styled.div`
   grid-column-gap: 17px;
   grid-row-gap: 12px;
 
+  justify-items: center;
+
   @media (min-width: 350px) {
     grid-template-columns: repeat(3, 1fr);
   }
