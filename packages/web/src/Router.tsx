@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import {
   AddBook,
@@ -14,7 +14,7 @@ import {
 } from './pages'
 
 const Router = (): JSX.Element => (
-  <HashRouter basename="/">
+  <BrowserRouter basename="/">
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/404" component={NotFound} />
@@ -32,7 +32,7 @@ const Router = (): JSX.Element => (
 
       <Route path="*" component={NotFound} />
     </Switch>
-  </HashRouter>
+  </BrowserRouter>
 )
 
 export { Router }
