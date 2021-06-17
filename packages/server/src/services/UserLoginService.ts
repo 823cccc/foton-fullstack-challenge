@@ -27,7 +27,7 @@ class UserLoginService {
       throw new ApiError('Incorrect email/password', 401)
     }
 
-    this.passwordValidationService.execute(user.password, password)
+    await this.passwordValidationService.execute(user.password, password)
 
     const token = await this.tokenGenerationService.execute(user.id)
 
