@@ -7,6 +7,7 @@ const Footer = styled.nav`
   bottom: 0;
 
   width: 100%;
+  max-height: 54px;
 
   display: grid;
 
@@ -16,6 +17,14 @@ const Footer = styled.nav`
   padding: 9px 0px;
 
   background: #ffffff;
+
+  @media (min-width: 768px) {
+    width: 600px;
+    margin: auto;
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `
 
 export { Footer }

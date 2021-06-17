@@ -10,6 +10,11 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0;
     background: #f2f2f2;
+
+    @media (min-width: 768px) {
+      overflow: scroll;
+    }
+    
   }
 `
 

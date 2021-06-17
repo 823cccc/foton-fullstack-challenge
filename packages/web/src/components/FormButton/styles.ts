@@ -18,6 +18,10 @@ const Button = styled.input`
   color: #ffffff;
 
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    margin: 20px 0 80px 0;
+  }
 `
 
 export { Button }
