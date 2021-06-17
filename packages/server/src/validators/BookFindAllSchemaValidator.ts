@@ -2,12 +2,12 @@ import { checkSchema } from 'express-validator'
 
 const BookFindAllSchemaValidator = checkSchema({
   take: {
-    in: 'params',
+    in: 'query',
     isNumeric: true,
     optional: true,
   },
   skip: {
-    in: 'params',
+    in: 'query',
     isNumeric: true,
     optional: true,
   },

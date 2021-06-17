@@ -30,8 +30,8 @@ class BookController {
 
   public findAll = async (req: Request, res: Response): Promise<Response> => {
     const books = await this.bookFindAllService.execute(
-      parseInt(req.params.take) ?? 15,
-      parseInt(req.params.skip) ?? 0,
+      Number(req.query.take) ?? 15,
+      Number(req.query.skip) ?? 0,
     )
 
     return res.status(200).json(books)
