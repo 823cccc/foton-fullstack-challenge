@@ -22,6 +22,19 @@ const config: webpack.Configuration = {
         },
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {},
+          },
+          {
+            loader: 'css-loader',
+            options: {},
+          },
+        ],
+      },
+      {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
@@ -37,6 +50,7 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
