@@ -20,4 +20,4 @@ if (
 Object.entries(process.env).forEach(([key, value]) => Container.set(key, value))
 
 const app = Container.get(App)
-app.bootstrap(process.env.PORT || 3000)
+app.bootstrap(process.env.PORT || 3333)
