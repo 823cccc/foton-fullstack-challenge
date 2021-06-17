@@ -1,9 +1,10 @@
 # Foton Fullstack Challenge
 
-Repository for Foton Fullstack Challenge.
+LIVE VERSION [HERE](https://823cccc.github.io/foton-fullstack-challenge/#/).
 
-Live version [here](https://823cccc.github.io/foton-fullstack-challenge/#/).
 Proposed design can be accessed from a mobile device or from your browser's DevTool.
+
+Due to Heroku Free Plan limitations, it might take a while for the app to work properly after first access.
 
 Admin account credentials were sent by email if desired to use ADD BOOK feature.
 
