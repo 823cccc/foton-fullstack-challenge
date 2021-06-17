@@ -14,7 +14,7 @@ import {
 } from './pages'
 
 const Router = (): JSX.Element => (
-  <BrowserRouter basename="/">
+  <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/404" component={NotFound} />
