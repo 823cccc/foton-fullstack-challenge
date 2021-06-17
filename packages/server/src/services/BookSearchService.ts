@@ -9,12 +9,18 @@ import { BookModel } from '../models'
 class BookSearchService {
   private repository = getRepository(BookModel)
 
-  public execute = async (query: string): Promise<Book[]> => {
+  public execute = async (
+    query: string,
+    take = 15,
+    skip = 0,
+  ): Promise<Book[]> => {
     const [books, count] = await this.repository.findAndCount({
       where: [
         { name: Like('%' + query + '%') },
         { author: Like('%' + query + '%') },
       ],
+      take: take,
+      skip: skip,
     })
 
     if (!count) {

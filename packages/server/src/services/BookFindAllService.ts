@@ -9,8 +9,6 @@ class BookFindAllService {
   private repository = getRepository(BookModel)
 
   public execute = async (take = 15, skip = 0): Promise<Book[]> => {
-    console.table({ take, skip })
-
     const books = await this.repository.find({
       take: take,
       skip: skip,

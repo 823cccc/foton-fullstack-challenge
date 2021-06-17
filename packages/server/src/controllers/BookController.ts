@@ -44,7 +44,11 @@ class BookController {
   }
 
   public search = async (req: Request, res: Response): Promise<Response> => {
-    const book = await this.bookSearchService.execute(req.query.query as string)
+    const book = await this.bookSearchService.execute(
+      req.query.query as string,
+      Number(req.query.take) ?? 15,
+      Number(req.query.skip) ?? 0,
+    )
 
     return res.status(200).json(book)
   }
