@@ -4,6 +4,7 @@ import Container from 'typedi'
 import { BookController } from '../controllers'
 import {
   AuthenticationMiddleware,
+  CheckRoleMiddleware,
   SchemaValidationMiddleware,
 } from '../middlewares'
 import {
@@ -21,6 +22,7 @@ const router = (): Router => {
   routes.post(
     '/books',
     AuthenticationMiddleware,
+    CheckRoleMiddleware('admin'),
     BookCreationSchemaValidator,
     SchemaValidationMiddleware,
     controller.create,

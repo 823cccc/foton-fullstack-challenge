@@ -13,12 +13,14 @@ class BookCreationService {
     author,
     description,
     coverUrl,
+    readUrl,
   }: Book): Promise<Book> => {
     const book = this.repository.create({
       name,
       author,
       description,
       coverUrl,
+      readUrl,
     })
 
     return this.repository.save(book)

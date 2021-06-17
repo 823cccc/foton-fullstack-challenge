@@ -16,6 +16,14 @@ class BookModel extends BaseModel implements Book {
 
   @Column({ name: 'cover_url', type: 'varchar', length: 2048 })
   public readonly coverUrl!: string
+
+  @Column({
+    name: 'read_url',
+    type: 'varchar',
+    length: 2048,
+    default: 'https://books.google.com/?hl=pt-BR',
+  })
+  public readonly readUrl!: string
 }
 
 export { BookModel }

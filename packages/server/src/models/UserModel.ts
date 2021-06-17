@@ -13,6 +13,14 @@ class UserModel extends BaseModel implements User {
 
   @Column({ name: 'password', type: 'varchar', length: 100 })
   public readonly password!: string
+
+  @Column({
+    name: 'role',
+    type: 'enum',
+    enum: ['user', 'admin'],
+    default: 'user',
+  })
+  public readonly role!: 'user' | 'admin'
 }
 
 export { UserModel }

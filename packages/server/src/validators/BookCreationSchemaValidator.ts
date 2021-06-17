@@ -19,6 +19,10 @@ const BookCreationSchemaValidator = checkSchema({
     in: 'body',
     isURL: true,
   },
+  readUrl: {
+    in: 'body',
+    isURL: true,
+  },
 })
 
 export { BookCreationSchemaValidator }

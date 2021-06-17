@@ -4,6 +4,7 @@ interface Book {
   author: string
   description: string
   coverUrl: string
+  readUrl: string
 }
 
 export { Book }
