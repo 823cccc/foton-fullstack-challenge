@@ -23,7 +23,7 @@ const App = (): JSX.Element => {
       <AuthenticationProvider>
         <Router />
       </AuthenticationProvider>
-      <ToastContainer />
+      <ToastContainer pauseOnHover={false} newestOnTop={true} />
     </>
   )
 }

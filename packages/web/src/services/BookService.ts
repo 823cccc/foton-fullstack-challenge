@@ -6,12 +6,14 @@ const create = async (
   name: string,
   author: string,
   coverUrl: string,
+  readUrl: string,
   description: string,
 ): Promise<Book> => {
   const response = await api.post<Book>('/books', {
     name,
     author,
     coverUrl,
+    readUrl,
     description,
   })
 

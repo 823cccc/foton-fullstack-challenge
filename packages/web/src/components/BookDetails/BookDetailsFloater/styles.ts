@@ -26,7 +26,7 @@ const Floater = styled.footer`
     max-width: auto;
     width: 600px;
 
-    margin: 50px auto;
+    margin: 50px auto 0 auto;
     justify-content: space-evenly;
 
     left: 50%;
@@ -34,4 +34,21 @@ const Floater = styled.footer`
   }
 `
 
-export { Floater }
+const Anchor = styled.a`
+  text-decoration: none;
+  color: #000;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+export { Floater, Anchor }

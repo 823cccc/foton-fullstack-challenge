@@ -14,6 +14,7 @@ type FormInputs = {
   name: string
   author: string
   coverUrl: string
+  readUrl: string
   description: string
 }
 
@@ -21,6 +22,7 @@ const schema = yup.object().shape({
   name: yup.string().required(),
   author: yup.string().required(),
   coverUrl: yup.string().url().required(),
+  readUrl: yup.string().url().required(),
   description: yup.string().required(),
 })
 
@@ -32,20 +34,26 @@ const AddBook = (): JSX.Element => {
   } = useForm<FormInputs>({ resolver: yupResolver(schema) })
   const history = useHistory()
 
-  const { authenticated } = useContext(AuthenticationContext)
+  const { user } = useContext(AuthenticationContext)
 
-  if (!authenticated) {
-    toast.error('You must be logged in.')
+  if (!user) {
+    toast.error('You must be logged in to perform this action.')
     return <Redirect to="/profile" />
+  }
+
+  if (user.role != 'admin') {
+    toast.error('You must be an Admin to perform this action.')
+    return <Redirect to="/" />
   }
 
   const onSubmit: SubmitHandler<FormInputs> = ({
     name,
     author,
     coverUrl,
+    readUrl,
     description,
   }) => {
-    BookService.create(name, author, coverUrl, description)
+    BookService.create(name, author, coverUrl, readUrl, description)
       .then((book) => {
         history.push('/books/' + book.id)
         toast.success('Book added successfully!')
@@ -72,6 +80,10 @@ const AddBook = (): JSX.Element => {
           <label>Cover URL</label>
           <input title="Cover URL" {...register('coverUrl')} />
           <p>{errors.coverUrl?.message}</p>
+
+          <label>Read URL</label>
+          <input title="Read URL" {...register('readUrl')} />
+          <p>{errors.readUrl?.message}</p>
 
           <label>Description</label>
           <textarea title="Description" {...register('description')} />

@@ -45,7 +45,7 @@ const Login = (): JSX.Element => {
         <Heading>Login to your account</Heading>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <label>Email</label>
-          <input title="Email" {...register('email')} />
+          <input type="text" title="Email" {...register('email')} />
           <p>{errors.email?.message}</p>
 
           <label>Password</label>

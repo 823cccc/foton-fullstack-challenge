@@ -38,7 +38,7 @@ const Details = (): JSX.Element => {
         <BookDetailsAuthor author={book?.author} />
         <BookDetailsDescription description={book?.description} />
       </Content>
-      {book && <BookDetailsFloater />}
+      {book && <BookDetailsFloater readUrl={book.readUrl} />}
     </>
   )
 }
