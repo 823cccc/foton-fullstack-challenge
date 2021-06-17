@@ -246,3 +246,5 @@ temp/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij+all,yarn,node
+
+packages/scripts

@@ -1,13 +1,16 @@
 import React from 'react'
 
-import { BookDetailsHeader } from '../../components'
+import { BookDetailsHeader, Heading } from '../../components'
 import { Content } from '../../styles'
 
 const NotFound = (): JSX.Element => {
   return (
     <>
       <BookDetailsHeader />
-      <Content>Not found :/</Content>
+      <Content>
+        <Heading>Not Found</Heading>
+        <p>{"We couldn't find the resource you requested."}</p>
+      </Content>
     </>
   )
 }

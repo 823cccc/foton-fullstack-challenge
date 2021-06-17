@@ -2,7 +2,7 @@ import { Book } from '@foton-challenge/common'
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
-import { Books, Button, NavigationBar, SearchBar } from '../../components'
+import { BookGrid, Button, NavigationBar, SearchBar } from '../../components'
 import { BookService } from '../../services'
 import { Content } from '../../styles'
 
@@ -14,6 +14,8 @@ const Search = (): JSX.Element => {
   const [amount, setAmount] = useState(1)
 
   const [books, setBooks] = useState<Book[]>([])
+  const [loading, setLoading] = useState(true)
+
   const [inputRef, setInputRef] = useState<HTMLInputElement | null>()
 
   useEffect(() => inputRef?.focus(), [inputRef])
@@ -24,6 +26,7 @@ const Search = (): JSX.Element => {
     BookService.searchBooks(search, take)
       .then((books) => setBooks(() => books))
       .catch(() => setBooks(() => []))
+      .finally(() => setLoading(() => false))
   }, [search, amount])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,9 +52,11 @@ const Search = (): JSX.Element => {
           searchPage
         />
 
-        <Books books={books} />
+        <BookGrid books={books} loading={loading} />
 
-        <Button label="Load more" onClick={handleClick} />
+        {!loading && books.length != 0 && (
+          <Button label="Load more" onClick={handleClick} />
+        )}
       </Content>
       <NavigationBar />
     </>

@@ -52,7 +52,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 105px;
+  margin-bottom: 15px;
+
+  width: 99px;
 `
 
 export { Cover, Title, Author, Wrapper }

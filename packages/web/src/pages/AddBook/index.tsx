@@ -1,25 +1,36 @@
-import React, { useContext, useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import React, { useContext } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { Redirect, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import * as yup from 'yup'
 
-import {
-  FormButton,
-  FormInput,
-  FormTextArea,
-  Heading,
-  NavigationBar,
-} from '../../components'
+import { Form, FormButton, Heading, NavigationBar } from '../../components'
 import { AuthenticationContext } from '../../contexts'
 import { BookService } from '../../services'
 import { Content } from '../../styles'
 
-const AddBook = (): JSX.Element => {
-  const history = useHistory()
+type FormInputs = {
+  name: string
+  author: string
+  coverUrl: string
+  description: string
+}
 
-  const [name, setName] = useState('')
-  const [author, setAuthor] = useState('')
-  const [coverUrl, setCoverUrl] = useState('')
-  const [description, setDescription] = useState('')
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  author: yup.string().required(),
+  coverUrl: yup.string().url().required(),
+  description: yup.string().required(),
+})
+
+const AddBook = (): JSX.Element => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInputs>({ resolver: yupResolver(schema) })
+  const history = useHistory()
 
   const { authenticated } = useContext(AuthenticationContext)
 
@@ -28,33 +39,19 @@ const AddBook = (): JSX.Element => {
     return <Redirect to="/profile" />
   }
 
-  const handleName = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setName(event.target.value)
-
-  const handleAuthor = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setAuthor(event.target.value)
-
-  const handleCoverUrl = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setCoverUrl(event.target.value)
-
-  const handleDescription = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
-    setDescription(event.target.value)
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
+  const onSubmit: SubmitHandler<FormInputs> = ({
+    name,
+    author,
+    coverUrl,
+    description,
+  }) => {
     BookService.create(name, author, coverUrl, description)
       .then((book) => {
         history.push('/books/' + book.id)
-
         toast.success('Book added successfully!')
       })
       .catch(() => {
-        setName('')
-        setAuthor('')
-        setCoverUrl('')
-        setDescription('')
-
+        location.reload()
         toast.error("Couldn't add a new book.")
       })
   }
@@ -63,21 +60,25 @@ const AddBook = (): JSX.Element => {
     <>
       <Content>
         <Heading>Add a new book</Heading>
-        <form onSubmit={handleSubmit}>
-          <FormInput label="Name" value={name} onChange={handleName} />
-          <FormInput label="Author" value={author} onChange={handleAuthor} />
-          <FormInput
-            label="Cover URL"
-            value={coverUrl}
-            onChange={handleCoverUrl}
-          />
-          <FormTextArea
-            label="Description"
-            value={description}
-            onChange={handleDescription}
-          />
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <label>Name</label>
+          <input title="Name" {...register('name')} />
+          <p>{errors.name?.message}</p>
+
+          <label>Author</label>
+          <input title="Author" {...register('author')} />
+          <p>{errors.author?.message}</p>
+
+          <label>Cover URL</label>
+          <input title="Cover URL" {...register('coverUrl')} />
+          <p>{errors.coverUrl?.message}</p>
+
+          <label>Description</label>
+          <textarea title="Description" {...register('description')} />
+          <p>{errors.description?.message}</p>
+
           <FormButton label="Add new book" />
-        </form>
+        </Form>
       </Content>
       <NavigationBar />
     </>

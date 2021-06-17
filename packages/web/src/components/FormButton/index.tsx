@@ -9,7 +9,7 @@ type Props = {
 const FormButton = ({ label }: Props): JSX.Element => {
   return (
     <>
-      <Button type="submit" title={label} value={label} />
+      <Button type="submit">{label}</Button>
     </>
   )
 }
