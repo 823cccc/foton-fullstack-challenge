@@ -4,6 +4,7 @@
   "repository": "git@github.com:823cccc/foton-fullstack-challenge.git",
   "license": "UNLICENSED",
   "private": "true",
+  "homepage": "https://823cccc.github.io/foton-fullstack-challenge",
   "workspaces": {
     "packages": [
       "packages/*"
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@foton-challenge/eslint-config": "*",
+    "gh-pages": "^3.2.1",
     "typescript": "^4.2.4"
   }
 }
