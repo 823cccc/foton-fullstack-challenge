@@ -24,8 +24,8 @@ Admin account credentials were sent by email if desired to use ADD BOOK feature.
   - ReactJS
   - Styled Components
   - axios
-  - react-dom-router
-  - react-form-hooks
+  - react-router-dom
+  - react-hook-form
   - react-toastify
   - GitHub Pages
 
