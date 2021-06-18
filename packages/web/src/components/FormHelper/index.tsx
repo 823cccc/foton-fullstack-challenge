@@ -10,7 +10,7 @@ type Props = {
 const FormHelper = ({ text, onClick }: Props): JSX.Element => {
   return (
     <>
-      <Anchor href="#" onClick={onClick}>
+      <Anchor onClick={onClick}>
         <Paragraph>{text}</Paragraph>
       </Anchor>
     </>
