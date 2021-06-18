@@ -30,6 +30,7 @@ const AddBook = (): JSX.Element => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormInputs>({ resolver: yupResolver(schema) })
   const history = useHistory()
@@ -49,7 +50,7 @@ const AddBook = (): JSX.Element => {
     description,
   }) => {
     if (user.role != 'admin') {
-      location.reload()
+      reset()
       toast.error('You must be an Admin to perform this action.')
 
       return
@@ -61,7 +62,6 @@ const AddBook = (): JSX.Element => {
         toast.success('Book added successfully!')
       })
       .catch(() => {
-        location.reload()
         toast.error("Couldn't add a new book.")
       })
   }
