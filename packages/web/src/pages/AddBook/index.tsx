@@ -41,11 +41,6 @@ const AddBook = (): JSX.Element => {
     return <Redirect to="/profile" />
   }
 
-  if (user.role != 'admin') {
-    toast.error('You must be an Admin to perform this action.')
-    return <Redirect to="/" />
-  }
-
   const onSubmit: SubmitHandler<FormInputs> = ({
     name,
     author,
@@ -53,6 +48,13 @@ const AddBook = (): JSX.Element => {
     readUrl,
     description,
   }) => {
+    if (user.role != 'admin') {
+      location.reload()
+      toast.error('You must be an Admin to perform this action.')
+
+      return
+    }
+
     BookService.create(name, author, coverUrl, readUrl, description)
       .then((book) => {
         history.push('/books/' + book.id)
