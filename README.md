@@ -1,6 +1,12 @@
+# ARCHIVED REPOSITORY
+
+Well, Foton is dead now.
+I managed to pass the tech challenge, but didn't accept any position back then.
+I hope this might be useful for the ones seeking to learn. 
+
 # Foton Fullstack Challenge
 
-LIVE VERSION [HERE](https://823cccc.github.io/foton-fullstack-challenge/#/).
+LIVE VERSION [HERE](https://marcodsl.github.io/foton-fullstack-challenge/#/).
 
 Proposed design can be accessed from a mobile device or from your browser's DevTool.
 
